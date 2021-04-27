@@ -1,7 +1,6 @@
 import React from "react"
 import { Form, FormField, TextInput, Box, Button, Heading } from "grommet"
-import axios from "axios"
-import utils from "../../utils"
+import api from "../../utils"
 
 const initState = {
     username: "",
@@ -20,8 +19,8 @@ function Login() {
                         onChange={nextValue => setUserInput(nextValue)}
                         onReset={() => setUserInput(initState)}
                         onSubmit={({ value }) =>
-                            axios
-                                .post(`${utils.API_BASE_URL}/api/login`, value)
+                            api
+                                .login(value)
                                 .then(res => console.log(res))
                                 .catch(err => console.log(err))
                         }
