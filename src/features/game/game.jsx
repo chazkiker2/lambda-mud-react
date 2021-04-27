@@ -78,19 +78,17 @@ function Game() {
                         </CardBody>
                         <CardFooter>
                             <Box width="large" direction="row" justify="evenly">
-                                {Object.entries(valid).map(([dir, isValid]) => {
-                                    return (
-                                        <Button
-                                            key={dir}
-                                            fill="horizontal"
-                                            primary
-                                            onClick={() => handleMove(dir)}
-                                            disabled={!isValid}
-                                        >
-                                            {dir}
-                                        </Button>
-                                    )
-                                })}
+                                {Object.entries(valid).map(([dir, isValid]) => (
+                                    <Button
+                                        key={dir}
+                                        fill="horizontal"
+                                        primary
+                                        onClick={() => handleMove(dir)}
+                                        disabled={!isValid}
+                                    >
+                                        {dir}
+                                    </Button>
+                                ))}
                             </Box>
                         </CardFooter>
                     </Card>
