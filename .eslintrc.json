@@ -11,6 +11,7 @@
 		"prettier"
 	],
 	"plugins": [
+		"react",
 		"react-hooks",
 		"testing-library",
 		"prettier"
@@ -20,7 +21,8 @@
 		"testing-library/no-await-sync-query": "error",
 		"testing-library/no-debug": "warn",
 		"testing-library/no-dom-import": "off",
-		"prettier/prettier": "error"
+		"prettier/prettier": "error",
+		"react/prop-types": 0
 	},
 	"overrides": [
 		{
