@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const API_BASE_URL = "http://localhost:8000"
+const API_BASE_URL = "http://127.0.0.1:8000"
 
 const axiosAuth = function () {
     const token = window.localStorage.getItem("token")
@@ -19,8 +19,8 @@ export const api = {
     axiosAuth,
 }
 
-api.login = userInfo => axios.post(`${API_BASE_URL}/api/login`, userInfo)
-api.register = userInfo => axios.post(`${API_BASE_URL}/api/login`, userInfo)
+api.login = userInfo => axios.post(`${API_BASE_URL}/api/api-login`, userInfo)
+api.register = userInfo => axios.post(`${API_BASE_URL}/api/register`, userInfo)
 api.initialize = () => axiosAuth().get("/api/adv/init")
 api.move = direction => axiosAuth().post("/api/adv/move", { direction })
 api.say = message => axiosAuth().post("/api/adv/say", message)
