@@ -2,8 +2,8 @@
 
 ## Links & Resources
 
-- Trello Board
-- MUD Django Project
+- [Trello Board](https://trello.com/b/lSiqM44H/lambdamud-chaz)
+- [MUD Django Project](https://github.com/chazkiker2/LambdaMUD-Project)
 
 ## Features
 
