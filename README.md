@@ -1,70 +1,47 @@
-# Getting Started with Create React App
+# Multi-user Dungeon Frontend Client
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Links & Resources
+
+- Trello Board
+- MUD Django Project
+
+## Features
+
+### Client
+
+- [ ] Create a standalone frontend app that communicates with the server via API calls
+- [ ] Be able to create a new account on the server (implemented on server)
+- [ ] Be able to log in to the server (implemented on server)
+- [ ] Create an interface that displays the current room name, its description and the other players in the room
+- [ ] Be able to move between rooms and update the display accordingly (implemented on server)
+- [ ] Be able to use a `say` command to say things that other people in the room will see (server implementation incomplete)
+- [ ] Upon login, subscribe to a Pusher channel based on the player's universally unique id: `p-channel-<uuid>`
+- [ ] Bind the player channel to `broadcast` events and display the messages to the player
+- [ ] Alert the player when someone enters and leaves the current room (implemented on server)
+- [ ] Alert the player when someone in the current room says something (server implementation incomplete)
+
+### General
+
+- [ ] Header comments in all source files that describe overall what the file does
+- [ ] Header comments on all functions that describe what the function does, function arguments, and return values
+
+### Extra Features
+
+- [ ] Add a `shout` command that broadcasts a message to every player
+- [ ] Add a `whisper` command that sends a private message to a single player
+- [ ] Disconnect inactive players
+- [ ] Replace text-based movement with graphical navigation
+- [ ] Expand the world map
+- [ ] Add a search function to find the shortest path to another player (hint: BFS)
+- [ ] Generate and display a map of the world
+- [ ] Add the ability to pick up and drop objects
+- [ ] Add NPCs that wander around the world (hint: look into [Celery](http://docs.celeryproject.org/en/latest/index.html))
+- [ ] Add weapons
+- [ ] Add combat with NPCs
+- [ ] Add PvP combat
 
 ## Available Scripts
 
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `npm start`
+- `npm run build`
+- `npm run eject`

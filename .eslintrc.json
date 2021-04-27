@@ -1,0 +1,36 @@
+{
+	"parser": "babel-eslint",
+	"env": {
+		"jest": true
+	},
+	"extends": [
+		"standard",
+		"standard-jsx",
+		"standard-react",
+		"plugin:prettier/recommended",
+		"prettier"
+	],
+	"plugins": [
+		"react-hooks",
+		"testing-library",
+		"prettier"
+	],
+	"rules": {
+		"testing-library/await-async-query": "error",
+		"testing-library/no-await-sync-query": "error",
+		"testing-library/no-debug": "warn",
+		"testing-library/no-dom-import": "off",
+		"prettier/prettier": "error"
+	},
+	"overrides": [
+		{
+			"files": [
+				"**/__tests__/**/*.[jt]s?(x)",
+				"**/?(*.)+(spec|test).[jt]s?(x)"
+			],
+			"extends": [
+				"plugin:testing-library/react"
+			]
+		}
+	]
+}
