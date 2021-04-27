@@ -26,7 +26,6 @@ function Signup() {
                             api
                                 .register(value)
                                 .then(res => {
-                                    console.log(res)
                                     window.localStorage.setItem(
                                         "key",
                                         res.data.key

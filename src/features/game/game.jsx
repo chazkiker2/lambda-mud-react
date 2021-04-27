@@ -8,17 +8,36 @@ import {
     CardBody,
     CardFooter,
     Button,
+    Form,
+    FormField,
+    TextInput,
 } from "grommet"
 import api from "../../utils"
 
+const directionMap = {
+    n: "north",
+    north: "n",
+    e: "east",
+    east: "e",
+    s: "south",
+    south: "s",
+    w: "west",
+    west: "w",
+}
+
 const initDirections = {
-    n: true,
-    e: true,
-    s: true,
-    w: true,
+    north: true,
+    east: true,
+    south: true,
+    west: true,
+}
+
+const initInput = {
+    message: "",
 }
 
 function Game() {
+    const [input, setInput] = React.useState(initInput)
     const [room, setRoom] = React.useState(null)
     const [error, setError] = React.useState(null)
     const [valid, setValid] = React.useState(initDirections)
@@ -36,7 +55,10 @@ function Game() {
             .then(res => {
                 if (res.data.error_msg) {
                     setError(res.data.error_msg)
-                    setValid(prev => ({ ...prev, [direction]: false }))
+                    setValid(prev => ({
+                        ...prev,
+                        [directionMap[direction]]: false,
+                    }))
                 } else {
                     setRoom(res.data)
                     setValid(initDirections)
@@ -56,7 +78,6 @@ function Game() {
                         width="large"
                         background="dark-2"
                         justify="center"
-                        align="left"
                         pad="large"
                     >
                         <CardHeader>
@@ -71,24 +92,32 @@ function Game() {
                                 <br />
                                 {room.players.length > 0
                                     ? room.players.map(player => (
-                                          <p key={player.name}>{player.name}</p>
+                                          <p key={player.uuid}>{player.name}</p>
                                       ))
                                     : "None"}
                             </Text>
                         </CardBody>
                         <CardFooter>
                             <Box width="large" direction="row" justify="evenly">
-                                {Object.entries(valid).map(([dir, isValid]) => (
-                                    <Button
-                                        key={dir}
-                                        fill="horizontal"
-                                        primary
-                                        onClick={() => handleMove(dir)}
-                                        disabled={!isValid}
-                                    >
-                                        {dir}
-                                    </Button>
-                                ))}
+                                {Object.entries(valid).map(
+                                    ([direction, isValid]) => (
+                                        <Button
+                                            key={direction}
+                                            background="brand"
+                                            onClick={() =>
+                                                handleMove(direction.charAt(0))
+                                            }
+                                            disabled={!isValid}
+                                        >
+                                            {`${direction
+                                                .charAt(0)
+                                                .toUpperCase()}${direction.slice(
+                                                1,
+                                                direction.length
+                                            )}`}
+                                        </Button>
+                                    )
+                                )}
                             </Box>
                         </CardFooter>
                     </Card>
@@ -100,6 +129,30 @@ function Game() {
                         {error}
                     </Text>
                 )}
+                <Form
+                    value={input}
+                    onChange={next => setInput(next)}
+                    onReset={() => setInput(initInput)}
+                    onSubmit={({ value }) => {
+                        api.say(value)
+                            .then(res => {
+                                // TODO: display success message
+                                console.log(res)
+                            })
+                            .catch(err => {
+                                // TODO: display failure message
+                                console.log(err)
+                            })
+                    }}
+                >
+                    <FormField name="message" label="Message">
+                        <TextInput name="message" />
+                    </FormField>
+                    <Box direction="row" justify="center" gap="medium">
+                        <Button type="submit" primary label="Submit" />
+                        <Button type="reset" label="Reset" />
+                    </Box>
+                </Form>
             </Box>
         </Box>
     )

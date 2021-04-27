@@ -22,7 +22,7 @@ export const api = {
         axios.post(`${API_BASE_URL}/api/api-register`, userInfo),
     initialize: () => axiosAuth().get("/api/adv/init"),
     move: direction => axiosAuth().post("/api/adv/move", { direction }),
-    say: message => axiosAuth().post("/api/adv/say", message),
+    say: message => axiosAuth().post("/api/adv/say", { message }),
 }
 
 export default api
