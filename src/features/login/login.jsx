@@ -19,12 +19,12 @@ function Login() {
                         value={userInput}
                         onChange={nextValue => setUserInput(nextValue)}
                         onReset={() => setUserInput(initState)}
-                        onSubmit={({ value }) => {
+                        onSubmit={({ value }) =>
                             axios
                                 .post(`${utils.API_BASE_URL}/api/login`, value)
                                 .then(res => console.log(res))
                                 .catch(err => console.log(err))
-                        }}
+                        }
                     >
                         <FormField name="username" label="Username">
                             <TextInput name="username" />
